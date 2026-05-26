@@ -1,5 +1,4 @@
 #!/bin/sh
-set -e
 
 echo "Running database migrations..."
 /app/.venv/bin/python scripts/provision_db.py
