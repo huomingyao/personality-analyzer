@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>关系冲突预警</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      width: 320px;
+      min-height: 400px;
+      font-family: -apple-system, BlinkMacSystemFont, "Microsoft YaHei", sans-serif;
+      background: #f8f9fa;
+      color: #333;
+      padding: 16px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #eee;
+    }
+
+    .header h1 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+
+    .logo {
+      width: 24px;
+      height: 24px;
+      background: linear-gradient(135deg, #ff6b6b, #ffa500);
+      border-radius: 6px;
+    }
+
+    .risk-meter {
+      background: #fff;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .risk-label {
+      font-size: 12px;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    .risk-value {
+      font-size: 32px;
+      font-weight: 700;
+      transition: color 0.3s;
+    }
+
+    .risk-low { color: #52c41a; }
+    .risk-medium { color: #faad14; }
+    .risk-high { color: #ff4d4f; }
+
+    .risk-bar {
+      height: 6px;
+      background: #f0f0f0;
+      border-radius: 3px;
+      margin-top: 8px;
+      overflow: hidden;
+    }
+
+    .risk-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width 0.3s, background 0.3s;
+    }
+
+    .signals {
+      margin-top: 16px;
+    }
+
+    .signal-item {
+      background: #fff;
+      border-radius: 8px;
+      padding: 12px;
+      margin-bottom: 8px;
+      border-left: 3px solid;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    .signal-high { border-left-color: #ff4d4f; }
+    .signal-medium { border-left-color: #faad14; }
+    .signal-low { border-left-color: #52c41a; }
+
+    .signal-type {
+      font-size: 12px;
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .signal-reason {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .turn-indicator {
+      font-size: 11px;
+      color: #999;
+      margin-top: 4px;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: #999;
+    }
+
+    .empty-state svg {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 12px;
+      opacity: 0.5;
+    }
+
+    .settings {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #eee;
+    }
+
+    .setting-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .setting-label {
+      font-size: 13px;
+      color: #666;
+    }
+
+    select {
+      padding: 6px 10px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 13px;
+      background: #fff;
+    }
+
+    .footer {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid #eee;
+      font-size: 11px;
+      color: #999;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo"></div>
+    <h1>关系冲突预警</h1>
+  </div>
+
+  <!-- Risk Meter -->
+  <div class="risk-meter">
+    <div class="risk-label">当前对话风险指数</div>
+    <div class="risk-value risk-low" id="riskValue">0</div>
+    <div class="risk-bar">
+      <div class="risk-bar-fill" id="riskBar" style="width: 0%; background: #52c41a;"></div>
+    </div>
+    <div class="signals" id="signals">
+      <div class="empty-state">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8s-9-3.582-9-8"/>
+        </svg>
+        <div>暂无对话数据</div>
+        <div style="font-size: 12px; margin-top: 4px;">点击页面消息开始分析</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings -->
+  <div class="settings">
+    <div class="setting-row">
+      <span class="setting-label">我的性格色彩</span>
+      <select id="myColor">
+        <option value="">未设置</option>
+        <option value="红色">红色</option>
+        <option value="蓝色" selected>蓝色</option>
+        <option value="黄色">黄色</option>
+        <option value="绿色">绿色</option>
+      </select>
+    </div>
+    <div class="setting-row">
+      <span class="setting-label">对方性格色彩</span>
+      <select id="theirColor">
+        <option value="">未设置</option>
+        <option value="红色" selected>红色</option>
+        <option value="蓝色">蓝色</option>
+        <option value="黄色">黄色</option>
+        <option value="绿色">绿色</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="footer">关系冲突预警 v0.1</div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>

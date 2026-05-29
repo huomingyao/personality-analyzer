@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+
+# 环境变量
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing
+.pytest_cache/
+.coverage
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+*.pem
+*.key
+
+# Claude settings (不要上传)
+.claude/
+
+# 隙光团队配置
+.xiguang-team
+
+# 本地知识库
+knowledge_bases/
+
+# 前端构建文件
+node_modules/
+
+# 临时文件
+*.tmp
+*.temp
