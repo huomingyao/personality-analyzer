@@ -12,7 +12,7 @@ trigger: 分析人格 / 性格分析 / 人格画像 / 心理分析 / 多框架�
 
 > 多框架人格分析系统 · 穿透行为表象，洞悉深层动机
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![License](https://img.shields.io/badge/License-Personal_Use_Only-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://www.python.org/)
 
 ---
@@ -231,7 +231,10 @@ trigger: 触发关键词
 
 ## 📄 License
 
-MIT License — 见 [LICENSE](LICENSE) 文件
+Copyright (c) 2024 火铭遥 — 保留所有权利。
+
+本软件仅供个人学习、研究使用，禁止商用和二次修改。
+详见 [LICENSE](LICENSE) 文件。
 
 ---
 
