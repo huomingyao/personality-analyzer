@@ -5,7 +5,7 @@ import codecs
 from pathlib import Path
 from typing import List, Optional
 
-from src.models import Chunk, Document, DocumentType
+from person_fenxi_core.models import Chunk, Document, DocumentType
 
 
 class DocumentReader:

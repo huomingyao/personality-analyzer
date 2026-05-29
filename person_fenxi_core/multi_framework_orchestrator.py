@@ -7,15 +7,15 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 from typing import Any
 
-from src.critic_agent import (
+from person_fenxi_core.critic_agent import (
     CriticAgent,
     CriticReport,
     FrameworkConclusion,
     MultiFrameworkReviewResult,
     CrossFrameworkIssue,
 )
-from src.llm_client import MiniMaxClient
-from src.unified_skill_manager import UnifiedSkillManager
+from person_fenxi_core.llm_client import MiniMaxClient
+from person_fenxi_core.unified_skill_manager import UnifiedSkillManager
 
 
 @dataclass

@@ -32,14 +32,10 @@ Thumbs.db
 *.pem
 *.key
 
-# Claude settings (不要上传)
-.claude/
-
-# 隙光团队配置
-.xiguang-team
-
-# 本地知识库
-knowledge_bases/
+# Web 本地数据
+web/data/
+web/knowledge_bases/
+web/__pycache__/
 
 # 前端构建文件
 node_modules/
@@ -47,3 +43,16 @@ node_modules/
 # 临时文件
 *.tmp
 *.temp
+
+# 废弃目录
+/backend/
+/conflict_patterns/
+/frontend/
+
+# Claude 配置
+.claude/
+
+# 知识库数据 (含敏感个人信息，不入仓库)
+/knowledge_bases/
+/web/knowledge_bases/*
+!/web/knowledge_bases/.gitkeep

@@ -8,7 +8,7 @@ from typing import Any, Iterator
 import httpx
 import numpy as np
 
-from src.config import get_minimax_api_key, get_minimax_model
+from person_fenxi_core.config import get_minimax_api_key, get_minimax_model
 
 
 @dataclass

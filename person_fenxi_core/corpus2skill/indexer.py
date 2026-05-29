@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 from typing import Any, Dict, List
 
-from src.models import Chunk, Document, Skill
+from person_fenxi_core.models import Chunk, Document, Skill
 
 
 class SkillIndexer:

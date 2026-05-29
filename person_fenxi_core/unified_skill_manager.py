@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any
 
 # Import existing components
-from src.skill_loader import LoadedSkill, SkillLoader
+from person_fenxi_core.skill_loader import LoadedSkill, SkillLoader
 
 
 # Known global skills directories
@@ -57,7 +57,7 @@ class UnifiedSkillManager:
 
     # Base directories for skills - relative to project root
     SKILLS_DIRS = [
-        Path(__file__).parent.parent / "skills",
+        Path(__file__).parent / "skills",
     ]
 
     def __init__(self) -> None:

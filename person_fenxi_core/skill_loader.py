@@ -6,11 +6,11 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Callable
 
-from src.config import DATA_DIR
+from person_fenxi_core.config import DATA_DIR
 
 
-# Skills directory - project root skills/
-GLOBAL_SKILLS_DIR = Path(__file__).parent.parent / "skills"
+# Skills directory - inside person_fenxi_core package
+GLOBAL_SKILLS_DIR = Path(__file__).parent / "skills"
 
 
 @dataclass

@@ -7,7 +7,7 @@ from typing import List, Optional, Tuple
 
 import numpy as np
 
-from src.models import Chunk
+from person_fenxi_core.models import Chunk
 
 
 @dataclass

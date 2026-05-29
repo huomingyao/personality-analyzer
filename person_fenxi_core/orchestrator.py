@@ -5,9 +5,9 @@ from dataclasses import dataclass, field
 from enum import Enum
 from typing import Any, Callable
 
-from src.analyzer import Analyzer, PsychProfile
-from src.critic import SkillCritic, ReviewResult
-from src.router import Intent
+from person_fenxi_core.analyzer import Analyzer, PsychProfile
+from person_fenxi_core.critic import SkillCritic, ReviewResult
+from person_fenxi_core.router import Intent
 
 
 class Decision(Enum):

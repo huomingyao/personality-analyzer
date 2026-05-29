@@ -8,7 +8,7 @@ from typing import Any, Dict, List, Tuple
 import faiss
 import numpy as np
 
-from src.config import FAISS_INDEX_PATH, VECTOR_DIM
+from person_fenxi_core.config import FAISS_INDEX_PATH, VECTOR_DIM
 
 
 class VectorStore:

@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any
 from uuid import UUID, uuid4
 
-from src.config import DATA_DIR
+from person_fenxi_core.config import DATA_DIR
 
 
 SESSION_DIR = DATA_DIR / "sessions"

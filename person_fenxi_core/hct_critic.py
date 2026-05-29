@@ -4,8 +4,8 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from src.orchestrator import Decision, PsychProfile
-from src.unified_skill_manager import create_unified_manager
+from person_fenxi_core.orchestrator import Decision, PsychProfile
+from person_fenxi_core.unified_skill_manager import create_unified_manager
 
 
 def hct_critic_with_skill(
